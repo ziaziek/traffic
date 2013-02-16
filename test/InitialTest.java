@@ -111,4 +111,16 @@ public class InitialTest {
         }
         assertEquals(38, v.getPosition());
     }
+    
+    @Test
+    public void laneNotification(){
+        Vehicle v = getVehicle();
+        Lane l = getLane(new Random());
+        l.addVehicle(v);
+        assertEquals(1, l.getVehicles().size());
+        v.setInertia(0);
+        v.move(5);
+        assertEquals(0, l.getVehicles().size());
+        assertEquals(-5, v.getPosition());
+    }
 }

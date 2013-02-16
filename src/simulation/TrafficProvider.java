@@ -4,9 +4,11 @@
  */
 package simulation;
 
+import data.Harmonogram;
 import java.util.ArrayList;
 import java.util.List;
 import trafficElements.Lane;
+import trafficElements.Vehicle;
 
 /**
  *
@@ -14,7 +16,16 @@ import trafficElements.Lane;
  */
 public class TrafficProvider {
     private List<Lane> lanes = null;
+    private Harmonogram harmonogram = null;
 
+    public Harmonogram getHarmonogram() {
+        return harmonogram;
+    }
+
+    public void setHarmonogram(Harmonogram harmon) {
+        this.harmonogram = harmon;
+    }
+    
     public List<Lane> getLanes() {
         return lanes;
     }
@@ -29,11 +40,10 @@ public class TrafficProvider {
         lanes.add(l);
     }
     
-    public void setHarmonohram(){
-        
-    }
     
-    public void generateVehicle(Lane l, int currentTime){
-        
+    public void generateVehicle(Lane l, double currentTime){
+        for(int i=0; i<harmonogram.getNumberOfVehicles(currentTime).numberOfVehicles; i++){
+            l.addVehicle(new Vehicle());
+        }
     }
 }

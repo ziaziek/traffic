@@ -54,6 +54,7 @@ public class Lane {
             vehicles = new ArrayList<Vehicle>();
         }
         vehicles.add(vehicle);
+        vehicle.setBelongTo(this);
     }
     
     
